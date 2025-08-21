@@ -174,8 +174,7 @@ export default class SchemaTree extends LitElement {
     // const newIndentLevel = dataType === 'xxx-of-option' || data['::type'] === 'xxx-of-option' ? indentLevel : (indentLevel + 1);
     const newIndentLevel = dataType === 'xxx-of-option' || data['::type'] === 'xxx-of-option' || key.startsWith('::OPTION') ? indentLevel : (indentLevel + 1);
 
-    if (data['::ONE~OF'] !== undefined) {
-      console.log({ t: '::OPTION', data, key, arrayType });
+    if (data['::ONE~OF'] !== undefined || data['::ONE~OF '] !== undefined) {
       if (schemaLevel < this.schemaExpandLevel) {
         openBracket = html`<span class="open-bracket one-of">${data['::nullable'] ? 'null┃' : ''}&nbsp;</span>`;
       } else {
